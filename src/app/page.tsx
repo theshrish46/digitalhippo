@@ -40,7 +40,7 @@ export default function Home() {
           </p>
           <div className="mt-6 flex flex-col gap-4 sm:flex-row">
             <Link href={"/"} className={buttonVariants()}>
-              Browser Trending
+              Browse Trending
             </Link>
             <Button variant={"ghost"}>Our quality promise &rarr;</Button>
           </div>
