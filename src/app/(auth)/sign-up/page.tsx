@@ -10,17 +10,12 @@ import { Icons } from "@/components/Icons";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import {
+  AuthCredentialsValidator,
+  TAuthCredentialsValidator,
+} from "@/lib/validators/account-credentials-validator";
 
 const Page = () => {
-  const AuthCredentialsValidator = z.object({
-    email: z.string().email(),
-    password: z
-      .string()
-      .min(8, { message: "Password must be atleast 8 characters long." }),
-  });
-
-  type TAuthCredentialsValidator = z.infer<typeof AuthCredentialsValidator>;
-
   const {
     register,
     handleSubmit,
@@ -29,7 +24,7 @@ const Page = () => {
     resolver: zodResolver(AuthCredentialsValidator),
   });
 
-  const onSubmit
+  const onSubmit = async ({ email, password }: TAuthCredentialsValidator) => {};
   return (
     <>
       <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0">
